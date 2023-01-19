@@ -1,6 +1,6 @@
 # Email Spam Filtering Application
 ## Objective
-A program used to detect unsolicited, unwanted and virus-infected emails and prevent those messages from getting to a user's inbox.
+A program used to detect unsolicited, unwanted and virus-infected emails and prevent those messages from getting to a user's inbox using ML's tools.
 Spam-free email set up
 ## Technologies Used
  React – for web application development 
