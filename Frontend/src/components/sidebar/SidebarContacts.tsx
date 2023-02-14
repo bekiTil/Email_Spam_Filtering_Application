@@ -6,17 +6,18 @@ import styled from "styled-components";
 
 const SidebarContacts = () => {
   return (
-    <StyledContainer>
-      <IconButton>
-        <PersonIcon />
-      </IconButton>
-      <IconButton>
-        <DuoIcon />
-      </IconButton>
-      <IconButton>
-        <PhoneIcon />
-      </IconButton>
-    </StyledContainer>
+      <></>
+    // <StyledContainer>
+    //   <IconButton>
+    //     <PersonIcon />
+    //   </IconButton>
+    //   <IconButton>
+    //     <DuoIcon />
+    //   </IconButton>
+    //   <IconButton>
+    //     <PhoneIcon />
+    //   </IconButton>
+    // </StyledContainer>
   );
 };
 

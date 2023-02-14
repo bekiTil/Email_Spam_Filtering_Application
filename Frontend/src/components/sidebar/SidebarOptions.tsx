@@ -6,13 +6,16 @@ import NoteIcon from "@material-ui/icons/Note";
 import StarIcon from "@material-ui/icons/Star";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import SidebarOptionsItem from "./SidebarOptionsItem";
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+import ErrorOutline from "@material-ui/icons/ErrorOutline";
 
 const SidebarOptions = () => {
   return (
     <>
       <SidebarOptionsItem Icon={InboxIcon} title="Inbox" count={54} selected />
-      <SidebarOptionsItem Icon={StarIcon} title="Starred" count={54} />
-      <SidebarOptionsItem Icon={AccessTimeIcon} title="Snoozed" count={54} />
+      <SidebarOptionsItem Icon={ErrorOutline} title="Spam" count={54} />
+      <SidebarOptionsItem Icon={NearMeIcon} title="Sent" count={54} />
+      {/* <SidebarOptionsItem Icon={AccessTimeIcon} title="Snoozed" count={54} />
       <SidebarOptionsItem
         Icon={LabelImportantIcon}
         title="Important"
@@ -20,7 +23,7 @@ const SidebarOptions = () => {
       />
       <SidebarOptionsItem Icon={NearMeIcon} title="Sent" count={54} />
       <SidebarOptionsItem Icon={NoteIcon} title="Drafts" count={54} />
-      <SidebarOptionsItem Icon={ExpandMoreIcon} title="More" count={54} />
+      <SidebarOptionsItem Icon={ExpandMoreIcon} title="More" count={54} /> */}
     </>
   );
 };
