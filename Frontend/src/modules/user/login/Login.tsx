@@ -1,11 +1,16 @@
 import { Button, TextField } from "@material-ui/core";
 import Image from "next/image";
-import { useStore } from "stores/store";
+
 import styled from "styled-components";
 import { useState } from "react";
 import { signin } from "api/authentication";
+import { useDispatch,useSelector } from "react-redux";
+import { login } from "stores/userSlice";
+
+
 
 const Login = () => {
+  const dispatch = useDispatch()
   // const { signInGoogle } = useStore().userStore;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,6 +18,13 @@ const Login = () => {
     signin(email, password).then((data) => {
       console.log(data);
       console.log("hi");
+      dispatch(
+        login({
+          user: data.email,
+          password: data.password,
+          loggedIn: true,
+        })
+      )
     });
     e.preventDefault();
   };

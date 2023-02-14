@@ -1,29 +1,36 @@
-import { createContext, useContext } from "react";
-import CommonStore from "./commonStore";
-import EmailStore from "./emailStore";
-import UserStore from "./userStore";
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import userReducer from './userSlice';
 
-interface Store {
-  commonStore: CommonStore;
-  userStore: UserStore;
-  emailStore: EmailStore;
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
+
+import storage from './storage'
+
+
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage,
 }
 
-export const store: Store = {
-  commonStore: new CommonStore(),
-  userStore: new UserStore(),
-  emailStore: new EmailStore(),
-};
+const persistedReducer = persistReducer(persistConfig, userReducer)
 
-export const StoreContext = createContext(store);
+const store = configureStore({
+  reducer: { user: persistedReducer },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+})
 
-export const useStore = () => {
-  return useContext(StoreContext);
-};
-
-export const resetStore = () => {
-  const { commonStore, userStore, emailStore } = store;
-  commonStore.reset();
-  userStore.reset();
-  emailStore.reset();
-};
+export default store
