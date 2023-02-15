@@ -14,7 +14,7 @@ const Sidebar = () => {
     <StyledSidebar active={sideBar}>
       <SidebarCompose />
       <SidebarOptions />
-      <SidebarContacts />
+      {/* <SidebarContacts /> */}
     </StyledSidebar>
   );
 };

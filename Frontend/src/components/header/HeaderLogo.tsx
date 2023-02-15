@@ -24,7 +24,7 @@ const HeaderLogo = () => {
 export default HeaderLogo;
 
 const StyledContainer = styled.div`
-  margin-left: 0.25rem;
+  margin-left: 0.75rem;
   display: none;
   cursor: pointer;
 

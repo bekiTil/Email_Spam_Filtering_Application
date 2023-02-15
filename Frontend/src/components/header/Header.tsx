@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import HeaderAvatar from "./HeaderAvatar";
 import HeaderLogo from "./HeaderLogo";
-import HeaderMenu from "./HeaderMenu";
-import HeaderOptions from "./HeaderOptions";
+// import HeaderMenu from "./HeaderMenu";
+// import HeaderOptions from "./HeaderOptions";
 import HeaderSearch from "./HeaderSearch";
 
 const Header = () => {
   return (
     <StyledHeader>
       <StyledLeft>
-        <HeaderMenu />
+        {/* <HeaderMenu /> */}
         <HeaderLogo />
       </StyledLeft>
       <StyledCenter>
@@ -38,7 +38,7 @@ margin-bottom: 1em;
 
 const StyledLeft = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 `;
 
 const StyledCenter = styled.div`
