@@ -23,41 +23,6 @@ const EmailsDetailsTools = () => {
         <IconButton onClick={() => router.push("/")}>
           <ArrowBackIcon />
         </IconButton>
-        <StyledIconButton>
-          <MoveToInboxIcon />
-        </StyledIconButton>
-        <StyledIconButton>
-          <ErrorIcon />
-        </StyledIconButton>
-        <StyledIconButton>
-          <DeleteIcon />
-        </StyledIconButton>
-        <StyledIconButton>
-          <EmailIcon />
-        </StyledIconButton>
-        <StyledIconButton>
-          <WatchLaterIcon />
-        </StyledIconButton>
-        <StyledIconButton>
-          <CheckCircleIcon />
-        </StyledIconButton>
-        <StyledIconButton>
-          <LabelImportantIcon />
-        </StyledIconButton>
-        <StyledIconButton>
-          <MoreVertIcon />
-        </StyledIconButton>
-      </StyledSection>
-      <StyledSection>
-        <StyledIconButton>
-          <UnfoldMoreIcon />
-        </StyledIconButton>
-        <StyledIconButton>
-          <PrintIcon />
-        </StyledIconButton>
-        <StyledIconButton>
-          <ExitToAppIcon />
-        </StyledIconButton>
       </StyledSection>
     </StyledContainer>
   );
