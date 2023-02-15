@@ -9,7 +9,11 @@ import styled from "styled-components";
 const EmailsDetailsContent = () => {
   const {user,emailForm,sideBar,selectEmail} = useSelector(selectUser);
 
-  const { subject, recipient, timestamp, message } = selectEmail;
+  
+  const subject= selectEmail?.subject;
+  const recipient =selectEmail?.recipient;
+  const timestamp= selectEmail?.timestamp;
+  const message = selectEmail?.message;
 
   return (
     <>
