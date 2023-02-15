@@ -33,9 +33,11 @@ const StyledButton = styled(Button)`
   &&& {
     margin: 1rem 0.75rem;
     text-transform: capitalize;
-    color: gray;
+    color: black;
+    background-color: skyblue;
+
     padding: 1rem;
-    border-radius: 1.75rem;
+    border-radius: 1rem;
     box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
   }
 `;

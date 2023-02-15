@@ -15,17 +15,26 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = (e: any) => {
-    signin(email, password).then((data) => {
-      console.log(data);
+    signin(email, password)
+    .then((data)=> {
       
+      console.log(data)
+    
+    return data.json() })
+    .then((data) => {
+      console.log(data)
+      if (data.ok){
+
       
       dispatch(
         login({
-          user: data.email,
-          password: data.password,
+          user: data.data.username,
+          password: data.data.password,
           loggedIn: true,
         })
+      
       )
+      }
     });
     e.preventDefault();
   };
@@ -34,7 +43,7 @@ const Login = () => {
     <StyledWrapper>
       <StyledContainer>
         <Image
-          src="/images/brand.png"
+          src="/images/brand.jpg"
           alt="brand"
           objectFit="contain"
           width={355}

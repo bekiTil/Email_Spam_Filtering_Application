@@ -7,6 +7,8 @@ import { endForm } from "stores/userSlice";
 import styled from "styled-components";
 
 const EmailsSendHeader = () => {
+  
+  const dispatch = useDispatch();
  
   
 
@@ -14,7 +16,7 @@ const EmailsSendHeader = () => {
     <StyledContainer>
       <StyledTitle>New Message</StyledTitle>
       <StyledIconContainer>
-        <CloseIcon onClick={() => endForm()} />
+        <CloseIcon onClick={() => dispatch(endForm())} />
       </StyledIconContainer>
     </StyledContainer>
   );

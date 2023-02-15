@@ -3,18 +3,19 @@ import { DefaultSeoProps } from "next-seo";
 export const baseUrl = "https://gmail-clone-martstech.vercel.app";
 
 export const defaultSEO: DefaultSeoProps = {
-  title: "Gmail Clone",
+  title: "Gmail Filter",
   description:
     "Gmail is email that's intuitive, efficient, and useful. 15 GB of storage, less spam, and mobile access.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: baseUrl,
-    site_name: "Gmail Clone",
+    site_name: "Email Filter ",
     images: [
       {
-        url: `${baseUrl}/meta/icon.png`,
-        alt: "Gmail Clone",
+        
+        url: `images/brand.png`,
+        alt: "Email Filer",
       },
     ],
   },

@@ -18,9 +18,9 @@ const EmailsDetailsContent = () => {
   return (
     <>
       <StyledHeader>
-        <StyledSubject>{subject}</StyledSubject>
+        <StyledSubject>{recipient}</StyledSubject>
         <StyledImportantIcon />
-        <StyledRecipient>{recipient}</StyledRecipient>
+        <StyledRecipient>{subject}</StyledRecipient>
         <StyledTime>{moment(timestamp).format("lll")}</StyledTime>
       </StyledHeader>
       <StyledMessage>{message}</StyledMessage>

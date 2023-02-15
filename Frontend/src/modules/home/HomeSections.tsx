@@ -4,10 +4,10 @@ import PeopleIcon from "@material-ui/icons/People";
 import styled from "styled-components";
 import HomeSectionsItem from "./HomeSectionsItem";
 
-const HomeSections = () => {
+const HomeSections = (props:any) => {
   return (
     <StyledContainer>
-      <HomeSectionsItem Icon={InboxIcon} title="Primary" color="red" selected />
+      <HomeSectionsItem Icon={InboxIcon} title={props.title} color={props.color} selected />
       {/* <HomeSectionsItem Icon={PeopleIcon} title="Social" color="#1A73E8" />
       <HomeSectionsItem
         Icon={LocalOfferIcon}

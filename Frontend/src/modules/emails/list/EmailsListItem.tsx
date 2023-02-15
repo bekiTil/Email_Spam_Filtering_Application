@@ -4,23 +4,23 @@ import { Email } from "types/email";
 import EmailsListItemOptions from "./EmailsListItemOptions";
 
 interface EmailsListItemProps {
-  email: Email;
-  handleSelect:  (id: string, subject: string,recipient: string, message: string, timestamp: Date) => void;
+  email: any;
+  handleSelect:  (id: string, subject: string,recipient: string, message: string, timestamp: any) => void;
 }
 
 const EmailsListItem: React.FC<EmailsListItemProps> = ({
   email,
   handleSelect,
 }) => {
-  const { id, recipient, subject, message, timestamp } = email;
+  const { to, subject, from, body, timestamp } = email;
 
   return (
-    <StyledContainer onClick={() => handleSelect(id,recipient,subject,message,timestamp)}>
+    <StyledContainer onClick={() => handleSelect("sf",from,subject,body,'Thu,  9 Jun 2011 13:35:55 -0400 (EDT)')}>
       <EmailsListItemOptions />
-      <StyledTitle>{recipient}</StyledTitle>
+      <StyledTitle>{from}</StyledTitle>
       <StyledMessage>
         <StyledSubject>
-          {subject} <StyledMessageContent>{message}</StyledMessageContent>
+          {subject} <StyledMessageContent>{body}</StyledMessageContent>
         </StyledSubject>
       </StyledMessage>
       <StyledTime>{moment(timestamp).format("lll")}</StyledTime>

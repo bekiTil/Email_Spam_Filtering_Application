@@ -5,6 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import styled from "styled-components";
 import EmailsListItem from "./EmailsListItem";
+import { Box, CircularProgress } from "@material-ui/core";
 
 const EmailsList = (props : any) => {
   
@@ -34,11 +35,21 @@ const EmailsList = (props : any) => {
         overflow: "auto",
       }}
     >
+      {emails.length  == 0 ? (
+      
+      <Box 
+
+      display="flex"
+  justifyContent="center"
+  alignItems="center"
+      sx={{ marginTop:40, display: 'flex' }}>
+        <CircularProgress />
+      </Box>) : (
       <InfiniteScroll
         dataLength={emails?.length}
         next={() => { } } 
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<h1>hi</h1>}
         scrollableTarget="scrollableDiv"
       >
         {emails?.map((email) => (
@@ -49,6 +60,7 @@ const EmailsList = (props : any) => {
           />
         ))}
       </InfiniteScroll>
+      )}
     </StyledContainer>
   );
 };
