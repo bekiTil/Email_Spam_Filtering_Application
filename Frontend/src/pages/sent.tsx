@@ -8,11 +8,11 @@ import HomeSections from "modules/home/HomeSections";
 import { useEffect, useState } from "react";
 
 const Sent = () => {
-    const [emails, setEmail] = useState<any>([]); 
+    const [emails, setEmails] = useState<any>([]); 
     useEffect (()=>{
       
         fetchSent().then((data)=>{
-            setEmail(data)
+            setEmails(data)
         })
     })
    

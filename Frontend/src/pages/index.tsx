@@ -8,11 +8,11 @@ import HomeSections from "modules/home/HomeSections";
 import { useEffect, useState } from "react";
 
 const HomePage = () => {
-  const [emails, setEmail] = useState<any>([]); 
+  const [emails, setEmails] = useState<any>([]); 
   useEffect (()=>{
     
       fetchInbox().then((data)=>{
-          setEmail(data)
+          setEmails(data)
       })
   })
   return (

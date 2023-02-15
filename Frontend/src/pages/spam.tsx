@@ -9,11 +9,11 @@ import { useEffect, useState } from "react";
 
 const Spam = () => {
 
-    const [emails, setEmail] = useState<any>([]); 
+    const [emails, setEmails] = useState<any>([]); 
     useEffect (()=>{
       
         fetchSpam().then((data)=>{
-            setEmail(data)
+            setEmails(data)
         })
     })
    
