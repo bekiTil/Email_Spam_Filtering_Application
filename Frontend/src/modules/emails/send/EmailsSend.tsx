@@ -1,19 +1,22 @@
 import { observer } from "mobx-react-lite";
-import { useStore } from "stores/store";
+import { useSelector } from "react-redux";
+import { selectEmail } from "stores/emailSlice";
+import { selectUser } from "stores/userSlice";
+
 import styled from "styled-components";
 import EmailsSendForm from "./EmailsSendForm";
 import EmailsSendHeader from "./EmailsSendHeader";
 
 const EmailsSend = () => {
-  const { emailFormOpened } = useStore().emailStore;
+  const {user,emailForm,sideBar,selectEmail} = useSelector(selectUser);
 
-  if (!emailFormOpened) {
-    console.log(emailFormOpened);
+  if (!emailForm) {
+    console.log(emailForm);
     return null;
   }
 
   return (
-    <StyledContainer opened={emailFormOpened}>
+    <StyledContainer opened={emailForm}>
       <EmailsSendHeader />
       <EmailsSendForm />
     </StyledContainer>

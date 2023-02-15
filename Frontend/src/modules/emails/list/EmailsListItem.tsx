@@ -5,7 +5,7 @@ import EmailsListItemOptions from "./EmailsListItemOptions";
 
 interface EmailsListItemProps {
   email: Email;
-  handleSelect: (id: string) => void;
+  handleSelect:  (id: string, subject: string,recipient: string, message: string, timestamp: Date) => void;
 }
 
 const EmailsListItem: React.FC<EmailsListItemProps> = ({
@@ -15,7 +15,7 @@ const EmailsListItem: React.FC<EmailsListItemProps> = ({
   const { id, recipient, subject, message, timestamp } = email;
 
   return (
-    <StyledContainer onClick={() => handleSelect(id)}>
+    <StyledContainer onClick={() => handleSelect(id,recipient,subject,message,timestamp)}>
       <EmailsListItemOptions />
       <StyledTitle>{recipient}</StyledTitle>
       <StyledMessage>

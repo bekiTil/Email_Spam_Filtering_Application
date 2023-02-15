@@ -1,16 +1,20 @@
 import CloseIcon from "@material-ui/icons/Close";
 import React from "react";
-import { useStore } from "stores/store";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from "stores/userSlice";
+import { endForm } from "stores/userSlice";
+
 import styled from "styled-components";
 
 const EmailsSendHeader = () => {
-  const { setEmailFormOpened } = useStore().emailStore;
+ 
+  
 
   return (
     <StyledContainer>
       <StyledTitle>New Message</StyledTitle>
       <StyledIconContainer>
-        <CloseIcon onClick={() => setEmailFormOpened(false)} />
+        <CloseIcon onClick={() => endForm()} />
       </StyledIconContainer>
     </StyledContainer>
   );

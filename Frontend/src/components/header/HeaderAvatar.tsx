@@ -1,14 +1,26 @@
 import { Avatar } from "@material-ui/core";
 import { observer } from "mobx-react-lite";
-import { useStore } from "stores/store";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectUser,logout } from "stores/userSlice";
 import styled from "styled-components";
 
 const HeaderAvatar = () => {
-  const { user, signOut } = useStore().userStore;
+  const { user,emailForm,sideBar} = useSelector(selectUser);
+  const dispatch = useDispatch()
+  const router = useRouter();
 
   return (
     <StyledContainer>
-      <Avatar src={user?.photoURL} alt="avatar" onClick={signOut} />
+      <Avatar src={user?.photoURL} alt="avatar" 
+      onClick={()=>{ 
+        
+        dispatch(logout())
+        console.log(user)
+        router.replace('/login')
+      }}      
+       />
     </StyledContainer>
   );
 };

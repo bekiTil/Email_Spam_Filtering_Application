@@ -1,15 +1,17 @@
 import { observer } from "mobx-react-lite";
-import { useStore } from "stores/store";
+import { useSelector } from "react-redux";
+import { selectUser } from "stores/userSlice";
+
 import styled from "styled-components";
 import SidebarCompose from "./SidebarCompose";
 import SidebarContacts from "./SidebarContacts";
 import SidebarOptions from "./SidebarOptions";
 
 const Sidebar = () => {
-  const { sidebarActive } = useStore().commonStore;
+  const {user,emailForm,sideBar,selectEmail} = useSelector(selectUser)
 
   return (
-    <StyledSidebar active={sidebarActive}>
+    <StyledSidebar active={sideBar}>
       <SidebarCompose />
       <SidebarOptions />
       <SidebarContacts />

@@ -1,17 +1,15 @@
 import LabelImportantIcon from "@material-ui/icons/LabelImportant";
 import { observer } from "mobx-react-lite";
 import moment from "moment";
-import { useStore } from "stores/store";
+import { useSelector } from "react-redux";
+import { selectUser } from "stores/userSlice";
+
 import styled from "styled-components";
 
 const EmailsDetailsContent = () => {
-  const { selectedEmail } = useStore().emailStore;
+  const {user,emailForm,sideBar,selectEmail} = useSelector(selectUser);
 
-  if (!selectedEmail) {
-    return null;
-  }
-
-  const { subject, recipient, timestamp, message } = selectedEmail;
+  const { subject, recipient, timestamp, message } = selectEmail;
 
   return (
     <>

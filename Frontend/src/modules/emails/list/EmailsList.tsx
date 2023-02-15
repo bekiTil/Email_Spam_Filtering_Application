@@ -1,20 +1,29 @@
 import { observer } from "mobx-react-lite";
 import { useRouter } from "next/router";
+import EmailPage from "pages/email";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useStore } from "stores/store";
+
 import styled from "styled-components";
 import EmailsListItem from "./EmailsListItem";
 
-const EmailsList = () => {
-  const { emails, hasMore, loadMore, selectEmail } = useStore().emailStore;
+const EmailsList = (props : any) => {
+  
+  const emails: any[]= props.emails;
+  const hasMore = true;
+  
+
   const router = useRouter();
 
-  const handleSelect = async (id: string) => {
-    const success = await selectEmail(id);
+  const handleSelect = (id: string, subject: string,recipient: string, message: string, timestamp: any) => {
+ 
 
-    if (success) {
-      router.push(`/email/${id}`);
-    }
+   
+      router.push({
+        pathname:`/email/`,
+        query:{id:id,subject: subject,recipient: recipient, message: message,timestamp:timestamp}
+
+      })
+    
   };
 
   return (
@@ -26,13 +35,13 @@ const EmailsList = () => {
       }}
     >
       <InfiniteScroll
-        dataLength={emails.length}
-        next={loadMore}
+        dataLength={emails?.length}
+        next={() => { } } 
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
         scrollableTarget="scrollableDiv"
       >
-        {emails.map((email) => (
+        {emails?.map((email) => (
           <EmailsListItem
             key={email.id}
             email={email}

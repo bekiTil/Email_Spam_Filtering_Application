@@ -1,4 +1,4 @@
-import { fetchInbox } from "api/emailType";
+import { fetchSent, fetchSpam } from "api/emailType";
 import DefaultLayout from "layouts/DefaultLayout";
 import IsAuth from "modules/auth/IsAuth";
 import EmailsList from "modules/emails/list/EmailsList";
@@ -7,18 +7,19 @@ import Home from "modules/home/Home";
 import HomeSections from "modules/home/HomeSections";
 import { useEffect, useState } from "react";
 
-const HomePage = () => {
-  const [emails, setEmail] = useState<any>([]); 
-  useEffect (()=>{
-    
-      fetchInbox().then((data)=>{
-          setEmail(data)
-      })
-  })
+const Sent = () => {
+    const [emails, setEmail] = useState<any>([]); 
+    useEffect (()=>{
+      
+        fetchSent().then((data)=>{
+            setEmail(data)
+        })
+    })
+   
   return (
     <IsAuth>
       <DefaultLayout>
-      <HomeSections />
+        <HomeSections />
         <EmailsList emails={emails} />
         <EmailsSend  />
       </DefaultLayout>
@@ -26,4 +27,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Sent;

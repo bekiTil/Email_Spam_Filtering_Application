@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
 import TextInput from "components/form/TextInput";
 import { Form, Formik } from "formik";
-import { useStore } from "stores/store";
+
 import styled from "styled-components";
 import * as Yup from "yup";
 
@@ -19,13 +19,13 @@ const validationSchema = Yup.object({
 });
 
 const EmailsSendForm = () => {
-  const { sendEmail } = useStore().emailStore;
+  // const { sendEmail } = useStore().emailStore;
 
   return (
     <Formik
       validationSchema={validationSchema}
       initialValues={{ recipient: "", subject: "", message: "" }}
-      onSubmit={sendEmail}
+      onSubmit={()=>{}}
     >
       {({ handleSubmit }) => (
         <StyledForm onSubmit={handleSubmit} autoComplete="off">

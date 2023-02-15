@@ -1,14 +1,25 @@
 import { Button } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import { useStore } from "stores/store";
+import { useDispatch, useSelector } from "react-redux";
+import { selectEmail, setEmailFormOpened } from "stores/emailSlice";
+import { selectUser, startForm } from "stores/userSlice";
+
 import styled from "styled-components";
 
 const SidebarCompose = () => {
-  const { setEmailFormOpened } = useStore().emailStore;
+  const { user,emailForm,sideBar,selectEmail} = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   return (
     <StyledButton
-      onClick={() => setEmailFormOpened(true)}
+      onClick={() => {
+        console.log(user)
+        console.log(emailForm)
+        dispatch(startForm())
+        
+      }
+      
+      }
       startIcon={<AddIcon fontSize="large" />}
     >
       Compose

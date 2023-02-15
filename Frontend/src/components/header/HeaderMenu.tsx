@@ -1,12 +1,18 @@
 import { IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { useStore } from "stores/store";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser, setSide } from "stores/userSlice";
+
 
 const HeaderMenu = () => {
-  const { toggleSidebar } = useStore().commonStore;
-
+  const {user,emailForm,sideBar, selectEmail} = useSelector(selectUser)
+ 
+  const dispatch = useDispatch()
   return (
-    <IconButton onClick={toggleSidebar}>
+    <IconButton onClick={()=>{
+      console.log(sideBar)
+      
+      dispatch(setSide())}}>
       <MenuIcon />
     </IconButton>
   );

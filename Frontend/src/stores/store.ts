@@ -13,6 +13,7 @@ import {
 } from 'redux-persist'
 
 import storage from './storage'
+import emailSlice from './emailSlice';
 
 
 const persistConfig = {
@@ -23,8 +24,10 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, userReducer)
 
+
 const store = configureStore({
-  reducer: { user: persistedReducer },
+  reducer: { user: persistedReducer ,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

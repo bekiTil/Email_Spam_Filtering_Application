@@ -17,7 +17,8 @@ const Login = () => {
   const handleSubmit = (e: any) => {
     signin(email, password).then((data) => {
       console.log(data);
-      console.log("hi");
+      
+      
       dispatch(
         login({
           user: data.email,
