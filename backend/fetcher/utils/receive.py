@@ -29,12 +29,12 @@ def get_all(username, password, spam=False):
 
         for part in message.walk():
             if part.get_content_type() == 'text/plain':
-                msg['body'] = '\n'.join(part.as_string().split('\n')[1:]).strip()
+                msg['body'] = '\n'.join(part.as_string().split('\n')[1:])
                 break
 
         if check.is_spam(msg['subject'] + msg['body']) == spam:
             messages.append(msg)
-    
+        
     imap.close()
     imap.logout()
 
