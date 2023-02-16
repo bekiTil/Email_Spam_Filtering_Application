@@ -23,7 +23,7 @@ const EmailsDetailsContent = () => {
         <StyledRecipient>{subject}</StyledRecipient>
         <StyledTime>{moment(timestamp).format("lll")}</StyledTime>
       </StyledHeader>
-      <StyledMessage>{message}</StyledMessage>
+        <StyledMessage>{message}</StyledMessage>
     </>
   );
 };
@@ -76,6 +76,7 @@ const StyledTime = styled.p`
 `;
 
 const StyledMessage = styled.p`
+  white-space: pre-line;
   padding: 0.75rem;
   margin-right: 1.25rem;
   overflow-wrap: break-word;

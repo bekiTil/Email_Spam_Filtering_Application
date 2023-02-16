@@ -1,8 +1,10 @@
 import { Button } from "@material-ui/core";
+import { sendEmail } from "api/emailType";
 import TextInput from "components/form/TextInput";
 import { Form, Formik } from "formik";
-import { useDispatch } from "react-redux";
-import { endForm } from "stores/userSlice";
+import { values } from "mobx";
+import { useDispatch, useSelector } from "react-redux";
+import { endForm, selectUser } from "stores/userSlice";
 
 import styled from "styled-components";
 import * as Yup from "yup";
@@ -21,6 +23,7 @@ const validationSchema = Yup.object({
 });
 
 const EmailsSendForm = () => {
+  const {user,emailForm,sideBar,selectEmail} = useSelector(selectUser);
   const dispatch = useDispatch();
  
   // const { sendEmail } = useStore().emailStore;
@@ -29,7 +32,18 @@ const EmailsSendForm = () => {
     <Formik
       validationSchema={validationSchema}
       initialValues={{ recipient: "", subject: "", message: "" }}
-      onSubmit={() => {dispatch(endForm())}}
+      onSubmit={(values) => {
+
+        sendEmail(user.user,user.password,values.recipient,values.subject,values.message)
+        
+        .then((data)=>{
+          
+          console.log(data)
+          dispatch(endForm())
+        })
+        console.log(values)
+        
+       }}
     >
       {({ handleSubmit }) => (
         <StyledForm onSubmit={handleSubmit} autoComplete="off">

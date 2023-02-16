@@ -39,8 +39,25 @@ const fetchSent = async (username:string, password:string) => {
          password,
       }),
    });
-
+   console.log(response)
    return response
 };
+const sendEmail = async (username : string , password: string , receiver: string , subject: string , body: string) => {
 
-export { fetchInbox, fetchSent, fetchSpam };
+
+   const response = await fetch(`${API_URL}/send_email/`,{
+      method :"POST",
+
+      body : JSON.stringify({
+         username,
+         password,
+         receiver,
+         subject,
+         body
+         
+      })
+   })
+   return response
+}
+
+export { fetchInbox, fetchSent, fetchSpam , sendEmail};
